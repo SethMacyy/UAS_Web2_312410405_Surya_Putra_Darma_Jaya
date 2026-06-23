@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Library</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<div id="app">
+    <router-view></router-view>
+</div>
+
+<script src="components/Login.js"></script>
+<script src="components/Dashboard.js"></script>
+<script src="components/Kategori.js"></script>
+<script src="components/Buku.js"></script>
+
+<script>
+// Axios base URL
+axios.defaults.baseURL = 'http://localhost/backend-api/public';
+
+// Request Interceptor
+axios.interceptors.request.use(config => {
+    const token = localStorage.getItem('token');
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+});
+
+// Routes
+const routes = [
+    { path: '/', redirect: '/login' },
+    { path: '/login', component: Login },
+    { path: '/dashboard', component: Dashboard, meta: { requiresAuth: true } },
+    { path: '/kategori', component: Kategori, meta: { requiresAuth: true } },
+    { path: '/buku', component: Buku, meta: { requiresAuth: true } },
+];
+
+const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes
+});
+
+// Navigation Guard
+router.beforeEach((to, from, next) => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (to.meta.requiresAuth && !isLoggedIn) {
+        next('/login');
+    } else {
+        next();
+    }
+});
+
+// Response Interceptor
+axios.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response && error.response.status === 401) {
+            alert('Sesi habis, silakan login kembali!');
+            localStorage.clear();
+            router.push('/login');
+        }
+        return Promise.reject(error);
+    }
+);
+
+// Mount App
+const app = Vue.createApp({});
+app.use(router);
+app.mount('#app');
+</script>
+
+</body>
+</html>
