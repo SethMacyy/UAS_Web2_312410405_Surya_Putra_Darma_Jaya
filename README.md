@@ -82,7 +82,7 @@ E-Library adalah aplikasi web berbasis arsitektur **Decoupled (Terpisah)** yang 
 > Tabel data buku dengan informasi judul, penulis, genre, stok, dan status
 
 ### 6. Uji Coba API Gagal (Error 401) via Postman
-![Buku](screenshoot/buku.png)
+![Buku](screenshoot/postman.png)
 
 
 ---
