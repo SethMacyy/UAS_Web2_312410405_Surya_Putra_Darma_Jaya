@@ -66,23 +66,24 @@ E-Library adalah aplikasi web berbasis arsitektur **Decoupled (Terpisah)** yang 
 > Screenshot skema relasi tabel dari phpMyAdmin
 
 ### 2. Halaman Login
-> ![Login Page](screenshots/login.png)
+> ![Login Page](screenshoot/login.png)
 > Halaman login dengan form username dan password menggunakan TailwindCSS
 
 ### 3. Halaman Dashboard Admin
-> ![Dashboard](screenshots/dashboard.png)
+> ![Dashboard](screenshoot/dashboard.png)
 > Dashboard admin menampilkan total kategori dan total buku
 
 ### 4. Halaman Manajemen Kategori
-> ![Kategori](screenshots/kategori.png)
+> ![Kategori](screenshoot/kategori.png)
 > Tabel data kategori dengan tombol tambah, edit, dan hapus
 
 ### 5. Halaman Manajemen Buku
-> ![Buku](screenshots/buku.png)
+> ![Buku](screenshoot/buku.png)
 > Tabel data buku dengan informasi judul, penulis, genre, stok, dan status
 
 ### 6. Uji Coba API Gagal (Error 401) via Postman
-> Screenshot hasil hit API tanpa token → mengembalikan response 401 Unauthorized
+![Buku](screenshoot/buku.png)
+
 
 ---
 
