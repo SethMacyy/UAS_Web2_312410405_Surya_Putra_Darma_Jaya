@@ -226,7 +226,7 @@ INSERT INTO users (username, password) VALUES
 
 ## 🎥 Demo & Presentasi
 
-- 🔗 **Link Demo:** `http://localhost/frontend-spa/index.html`
+- 🔗 **Link Demo:** `http://elibrary-api.infinityfree.me/`
 - 🎬 **Link Video Presentasi:** *(isi setelah upload ke YouTube)*
 
 ---
